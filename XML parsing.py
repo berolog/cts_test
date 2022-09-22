@@ -1,7 +1,6 @@
-import ntpath
+
 import argparse
 from artifactory import ArtifactoryPath
-from pathlib import Path
 import tarfile
 import xml.etree.ElementTree as ET
 from influxdb import InfluxDBClient
@@ -34,9 +33,9 @@ tar.extractall()
 tree = ET.parse('./android-cts/results/latest/test_result.xml')
 root = tree.getroot()
 
-client = InfluxDBClient(influx_url, 8086, 'admin', 'GfhjkJhtk1213')
+#client = InfluxDBClient(influx_url, 8086, 'admin', 'GfhjkJhtk1213')
 
-client.switch_database('cts')
+#client.switch_database('cts')
 
 for summary in root.iter('Summary'):
     for module in root.iter('Module'):
